@@ -1,0 +1,45 @@
+# 
+########################################################################################################################
+########################################################################################################################
+#   Autor ..................................................: Anderson Lopez                                           #
+#   Site ...................................................: www.corp.com.br                                          #
+#   Data ...................................................: 26/12/2022                                               #
+#   Data atualização .......................................: 29/01/2023                                               #
+#   Versão .................................................: 0.02                                                     #
+########################################################################################################################
+########################################################################################################################
+# 
+# Testado e homologado para a versão do Ubuntu Server 20.04.x LTS x64
+# Mais informações veja o arquivo: scripts/settings/04-ConfiguracaoDoNetplan.sh
+# Após as configuração do endereço IPv4 digitar o comando: netplan --debug apply
+#
+# Configuração do Endereço IPv4 do Ubuntu Server
+network:
+  #
+  # Configuração do Protocolo Ethernet do Ubuntu Server
+  ethernets:
+    #
+    # Configuração do Nome da Placa de Rede do Ubuntu Server
+    eth0:
+      #
+      # Configuração do Endereço IPv4 e CIDR Estático do Ubuntu Server
+      addresses:
+      - 182.13.1.10/24
+      #
+      # Configuração do Endereço de Gateway IPv4 do Ubuntu Server
+      gateway4: 182.13.1.1
+      #
+      # Configuração dos Endereços de DNS Server IPv4 do Ubuntu Server
+      nameservers:
+        addresses:
+        #- 192.13.1.10
+        - 182.13.1.1
+        #- 8.8.8.8
+        #- 8.8.8.8
+        #
+        # Configuração do Nome de Pesquisa DNS do Ubuntu Server
+        search:
+        - .corp
+        #
+  # Configuração da versão do Protocolo Ethernet do Ubuntu Server
+  version: 2
